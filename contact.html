@@ -46,22 +46,20 @@
                         </div>
                         <div class="row gx-5 justify-content-center">
                             <div class="col-lg-8 col-xl-6">
-                                <!-- * * * * * * * * * * * * * * *-->
-                                <!-- * * SB Forms Contact Form * *-->
-                                <!-- * * * * * * * * * * * * * * *-->
-                                <!-- This form is pre-integrated with SB Forms.-->
-                                <!-- To make this form functional, sign up at-->
-                                <!-- https://startbootstrap.com/solution/contact-forms-->
-                                <!-- to get an API token!-->
-
+                                <!-- Contact Form -->
                                 <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-                                    <input type="hidden" name="access_key" value="deletethis3b71454a-c918-48e9-907a-c0d6060f3d77">   
+                                    <input type="hidden" name="access_key" value="3b71454a-c918-48e9-907a-c0d6060f3d77">  
+                                    <input type="hidden" name="h-captcha-response" id="hCaptchaResponse">
+                                    <script src="https://web3forms.com/client/script.js" async defer></script>
+                                    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+                                    
                                     <!-- Name input-->
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="name" type="text" placeholder="Enter your name..." required>
                                         <label for="name">Full name</label>
                                         <div class="invalid-feedback" feedback="name:required">A name is required.</div>
                                     </div>
+
                                     <!-- Email address input-->
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="email" type="email" placeholder="name@example.com" required>
@@ -69,43 +67,28 @@
                                         <div class="invalid-feedback" feedback="email:required">An email is required.</div>
                                         <div class="invalid-feedback" feedback="email:email">Email is not valid.</div>
                                     </div>
+
                                     <!-- Phone number input-->
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" required>
                                         <label for="phone">Phone number</label>
                                         <div class="invalid-feedback" feedback="phone:required">A phone number is required.</div>
                                     </div>
+
                                     <!-- Message input-->
                                     <div class="form-floating mb-3">
-                                        <textarea class="form-control" name="name" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" required></textarea>
+                                        <textarea class="form-control" name="message" id="message" placeholder="Enter your message here..." style="height: 10rem" required></textarea>
                                         <label for="message">Message</label>
                                         <div class="invalid-feedback" feedback="message:required">A message is required.</div>
-                                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                                     </div>
-                                    <!-- Submit success message-->
-                                    <!---->
-                                    <!-- This is what your users will see when the form-->
-                                    <!-- has successfully submitted-->
-                                    <div class="d-none" id="submitSuccessMessage">
-                                        <div class="text-center mb-3">
-                                            <div class="fw-bolder">Form submission successful!</div>
-                                        </div>
-                                    </div>
-                                    <!-- Submit error message-->
-                                    <!---->
-                                    <!-- This is what your users will see when there is-->
-                                    <!-- an error submitting the form-->
-                                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+
                                     <!-- Submit Button-->
-                                    <div class="h-captcha" data-captcha="true"></div>
+                                    <div class="h-captcha" data-sitekey="8e00353e-0152-479c-9ec0-e5e2e5becc82"></div>
 
                                     <div class="d-grid">
-                                        <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button></div>
-
+                                        <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
+                                    </div>
                                 </form>
-                                <script src="https://web3forms.com/client/script.js" async defer></script>
-
-                                
                             </div>
                         </div>
                     </div>
@@ -113,8 +96,26 @@
             </section>
         </main>
 
+        <script>
+            document.getElementById("contactForm").addEventListener("submit", function(event) {
+                // Get the hCaptcha response value
+                var response = hcaptcha.getResponse();
+                
+                console.log("hCaptcha Response: ", response);
 
+                if (!response) {
+                    // If no response, prevent form submission and show alert
+                    alert("Please complete the CAPTCHA.");
+                    event.preventDefault();  // Prevent form from submitting
+                } else {
+                    // If response exists, set the value in the hidden field
+                    document.getElementById("hCaptchaResponse").value = response;
+                    // Manually submit the form after setting the hCaptcha response
+                    this.submit();
+                }
+            });
         </script>
+
         <!-- Footer-->
         <footer class="bg-white py-4 mt-auto">
             <div class="container px-5">
