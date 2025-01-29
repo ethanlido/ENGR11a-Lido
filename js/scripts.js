@@ -5,7 +5,18 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
-const form = document.getElementById('contactForm');
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    var response = grecaptcha.getResponse(); // hCaptcha response
+    if (response.length === 0) {
+        event.preventDefault();  // Prevent form submission
+        alert("Please complete the CAPTCHA.");
+    } else {
+        // Set the response in the hidden field
+        document.getElementById("hCaptchaResponse").value = response;
+    }
+});
+
+
 
 form.addEventListener('submit', function(e) {
 
