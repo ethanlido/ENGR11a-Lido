@@ -11839,7 +11839,7 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 
 /* Hide the images by default*/
 .mySlides {
-  opacity: 0;
+  display: none;
   position: relative;
 }
 
@@ -11907,16 +11907,6 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
   background-color: #717171;
 }
 
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 20s;
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
 
 
 
