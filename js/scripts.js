@@ -26,7 +26,6 @@ function showSlides(n) {
   if (n < 1) { slideIndex = slides.length }
 
   for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
     slides[i].style.opacity = "0";  // Hide the slide
     slides[i].classList.remove("active");  // Remove active class
   }
