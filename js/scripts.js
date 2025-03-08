@@ -39,7 +39,23 @@ function showSlides(n) {
   slides[slideIndex - 1].classList.add("active");  // Add active class
   dots[slideIndex - 1].className += " active";  // Highlight the active dot
 }
+window.addEventListener('DOMContentLoaded', event => {
 
+    // Toggle the side navigation
+    const sidebarToggle = document.body.querySelector('#sidebarToggle');
+    if (sidebarToggle) {
+        // Uncomment Below to persist sidebar toggle between refreshes
+        // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
+        //     document.body.classList.toggle('sb-sidenav-toggled');
+        // }
+        sidebarToggle.addEventListener('click', event => {
+            event.preventDefault();
+            document.body.classList.toggle('sb-sidenav-toggled');
+            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+        });
+    }
+
+});
 
 /*!
 let slideIndex = 1;
@@ -73,23 +89,7 @@ function showSlides(n) {
 
 */
 /*!
-window.addEventListener('DOMContentLoaded', event => {
 
-    // Toggle the side navigation
-    const sidebarToggle = document.body.querySelector('#sidebarToggle');
-    if (sidebarToggle) {
-        // Uncomment Below to persist sidebar toggle between refreshes
-        // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
-        //     document.body.classList.toggle('sb-sidenav-toggled');
-        // }
-        sidebarToggle.addEventListener('click', event => {
-            event.preventDefault();
-            document.body.classList.toggle('sb-sidenav-toggled');
-            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-        });
-    }
-
-});
 
 document.getElementById("contactForm").addEventListener("submit", function(event) {
     var response = grecaptcha.getResponse(); // hCaptcha response
