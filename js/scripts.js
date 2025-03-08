@@ -35,7 +35,7 @@ function showSlides(n) {
   }
 
   // Show the current slide by setting opacity to 1 (fade it in)
-  slides[slideIndex - 1].style.opacity = "1";  // Fade in the active slide
+  slides[slideIndex - 1].style.display = "block";  // Fade in the active slide
   slides[slideIndex - 1].classList.add("active");  // Add active class
   dots[slideIndex - 1].className += " active";  // Highlight the active dot
 }
