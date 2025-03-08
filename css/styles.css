@@ -11837,12 +11837,11 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
   margin: auto;
 }
 
-/* Hide the images by default
+/* Hide the images by default*/
 .mySlides {
   display: none;
   position: relative;
 }
-*/
 
 /* Next & previous buttons */
 .prev, .next {
