@@ -11910,10 +11910,7 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 /* Fading animation */
 
 
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
+
 
 
 
