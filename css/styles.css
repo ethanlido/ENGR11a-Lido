@@ -11844,9 +11844,6 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
   position: relative;
 }
 
-.mySlides.active{
-  opactity: 1;
-}
 
 /* Next & previous buttons */
 .prev, .next {
