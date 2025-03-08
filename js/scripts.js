@@ -5,7 +5,47 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
+let slideIndex = 1;
+showSlides(slideIndex);
 
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+
+  // Loop around if n exceeds number of slides
+  if (n > slides.length) { slideIndex = 1 }
+  if (n < 1) { slideIndex = slides.length }
+
+  // Hide all slides by setting opacity to 0
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.opacity = "0";  // Hide the slide
+    slides[i].classList.remove("active");  // Remove active class
+  }
+
+  // Remove active class from all dots
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+
+  // Show the current slide by setting opacity to 1 (fade it in)
+  slides[slideIndex - 1].style.opacity = "1";  // Fade in the active slide
+  slides[slideIndex - 1].classList.add("active");  // Add active class
+  dots[slideIndex - 1].className += " active";  // Highlight the active dot
+}
+
+
+/*!
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -35,6 +75,7 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
+*/
 /*!
 window.addEventListener('DOMContentLoaded', event => {
 
