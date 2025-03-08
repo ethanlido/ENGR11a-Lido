@@ -35,6 +35,7 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
+/*!
 window.addEventListener('DOMContentLoaded', event => {
 
     // Toggle the side navigation
@@ -76,6 +77,6 @@ form.addEventListener('submit', function(e) {
         return
     }
 });
-
+*/
 
 
