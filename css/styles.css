@@ -11839,8 +11839,7 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 
 /* Hide the images by default*/
 .mySlides {
-  opacity: 0;
-  position: relative;
+  display: none;
 }
 
 
