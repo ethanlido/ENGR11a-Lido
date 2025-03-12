@@ -11823,12 +11823,9 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 
 
 
-
-
-
-
-
-* {box-sizing:border-box}
+* {
+  box-sizing: border-box;
+}
 
 /* Slideshow container */
 .slideshow-container {
@@ -11837,11 +11834,10 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
   margin: auto;
 }
 
-/* Hide the images by default*/
+/* Hide the images by default */
 .mySlides {
   display: none;
 }
-
 
 /* Next & previous buttons */
 .prev, .next {
@@ -11865,9 +11861,9 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
   border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
+/* On hover, add a black background color with a little bit of transparency */
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Caption text */
@@ -11909,13 +11905,11 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
 /* Fading animation */
 .fade {
   animation-name: fade;
-  animation-duration: 20.5s;
+  animation-duration: 15s;
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from { opacity: 1 }
+  to { opacity: 1 }
 }
-
-
 

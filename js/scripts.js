@@ -5,6 +5,7 @@
 */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
+
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -22,17 +23,35 @@ function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
+  
+  // Reset to the first slide if n is out of bounds
+  if (n > slides.length) { slideIndex = 1 }
+  if (n < 1) { slideIndex = slides.length }
+
+  // Hide all slides
   for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
+    slides[i].style.display = "none";  
   }
+
+  // Remove "active" class from all dots
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+
+  // Show the current slide
+  slides[slideIndex - 1].style.display = "block";
+
+  // Add "active" class to the corresponding dot
+  dots[slideIndex - 1].className += " active";
 }
+
+// Optional: Automatic slideshow
+function autoSlide() {
+  plusSlides(1);
+}
+
+setInterval(autoSlide, 10000); // Change image every 3 seconds
+
 
 /*!
 let slideIndex = 1;
